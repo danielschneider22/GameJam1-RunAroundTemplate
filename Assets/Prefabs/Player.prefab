@@ -364,6 +364,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2366001126601956917}
   - component: {fileID: 4828163217287667155}
+  - component: {fileID: 7411205736791642032}
   m_Layer: 0
   m_Name: Player Sprite
   m_TagString: Untagged
@@ -409,6 +410,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!95 &7411205736791642032
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2366001126601956916}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0ff3586bae9a7e34c96e3576f94d0150, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2366001126675185010
 GameObject:
   m_ObjectHideFlags: 0
@@ -1116,7 +1136,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5697469272729031306}
   - component: {fileID: 2611351599685253825}
-  - component: {fileID: 1735689773001534591}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1153,22 +1172,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   body: {fileID: 4828163217287667155}
---- !u!95 &1735689773001534591
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4444106179926731673}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0ff3586bae9a7e34c96e3576f94d0150, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
