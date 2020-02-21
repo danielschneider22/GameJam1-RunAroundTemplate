@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 5f;
     public Rigidbody2D body;
+    public Animator animator;
+    public SpriteRenderer animRender;
 
     Vector2 movement;
 
@@ -16,6 +18,30 @@ public class PlayerMovement : MonoBehaviour
     {
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
+        if(movement.y > 0)
+        {
+            animator.SetBool("WalkUp", false);
+            animator.SetBool("Idle", false);
+            animator.SetBool("WalkDown", true);
+            
+        } else if (movement.y < 0)
+        {
+            animator.SetBool("WalkDown", false);
+            animator.SetBool("Idle", false);
+            animator.SetBool("WalkUp", true);
+        } else if (movement.x == 0 && movement.y == 0)
+        {
+            animator.SetBool("WalkUp", false);
+            animator.SetBool("WalkDown", false);
+            animator.SetBool("Idle", true);
+        }
+        if (movement.x > 0)
+        {
+            animRender.flipX = true;
+        } else if (movement.x < 0)
+        {
+            animRender.flipX = false;
+        }
     }
     void FixedUpdate()
     {
