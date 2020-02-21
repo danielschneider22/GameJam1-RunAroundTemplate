@@ -10,6 +10,7 @@ public class DialogManager : MonoBehaviour
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI dialogText;
     public Animator dialogAnimator;
+    public Image animalToShow;
     void Start()
     {
         sentences = new Queue<string>(); 
@@ -27,6 +28,7 @@ public class DialogManager : MonoBehaviour
             sentences.Enqueue(sentence);
         }
         dialogText.text = sentences.Dequeue();
+        animalToShow.sprite = dialog.avatar;
     }
 
     public void DisplayNextSentence()
