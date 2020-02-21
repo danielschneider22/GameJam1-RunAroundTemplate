@@ -1200,7 +1200,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ad7c5af864c016b4a8500e9234798e7b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.18, y: 0.29}
@@ -1256,6 +1256,8 @@ MonoBehaviour:
   moveSpeed: 5
   body: {fileID: 4828163217287667155}
   animator: {fileID: 7411205736791642032}
+  rightLeg: {fileID: 5261531599838874333}
+  leftLeg: {fileID: 1071928191455275690}
 --- !u!1 &5898144965614132245
 GameObject:
   m_ObjectHideFlags: 0

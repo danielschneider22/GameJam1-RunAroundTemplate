@@ -9,7 +9,8 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 5f;
     public Rigidbody2D body;
     public Animator animator;
-    public SpriteRenderer animRender;
+    public SpriteRenderer rightLeg;
+    public SpriteRenderer leftLeg;
 
     Vector2 movement;
 
@@ -24,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("Idle", false);
             animator.SetBool("WalkDown", true);
             
-        } else if (movement.y < 0)
+        } else if (movement.y < 0 || (movement.y == 0 && movement.x != 0))
         {
             animator.SetBool("WalkDown", false);
             animator.SetBool("Idle", false);
@@ -37,10 +38,12 @@ public class PlayerMovement : MonoBehaviour
         }
         if (movement.x > 0)
         {
-            animRender.flipX = true;
+            leftLeg.flipX = false;
+            rightLeg.flipX = false;
         } else if (movement.x < 0)
         {
-            animRender.flipX = false;
+            rightLeg.flipX = true;
+            leftLeg.flipX = true;
         }
     }
     void FixedUpdate()
