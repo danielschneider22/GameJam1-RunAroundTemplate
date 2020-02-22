@@ -1258,6 +1258,7 @@ MonoBehaviour:
   animator: {fileID: 7411205736791642032}
   rightLeg: {fileID: 5261531599838874333}
   leftLeg: {fileID: 1071928191455275690}
+  head: {fileID: 2366001127494288018}
 --- !u!1 &5898144965614132245
 GameObject:
   m_ObjectHideFlags: 0

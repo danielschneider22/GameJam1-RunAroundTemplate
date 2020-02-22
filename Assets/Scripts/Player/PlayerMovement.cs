@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public Animator animator;
     public SpriteRenderer rightLeg;
     public SpriteRenderer leftLeg;
+    public SpriteRenderer head;
 
     Vector2 movement;
 
@@ -40,10 +41,12 @@ public class PlayerMovement : MonoBehaviour
         {
             leftLeg.flipX = false;
             rightLeg.flipX = false;
+            head.flipX = false;
         } else if (movement.x < 0)
         {
             rightLeg.flipX = true;
             leftLeg.flipX = true;
+            head.flipX = true;
         }
     }
     void FixedUpdate()
