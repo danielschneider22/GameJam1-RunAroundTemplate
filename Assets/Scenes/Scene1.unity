@@ -309,6 +309,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 530dfe0f003d8f5409537651b7f9c15b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &106809411 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5697469272729031306, guid: 436759be79ca9d347beb0df74834e960,
+    type: 3}
+  m_PrefabInstance: {fileID: 826201188}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &106809412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -408,13 +414,13 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 32.95
+  m_fontSize: 30.95
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_textAlignment: 257
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -599,6 +605,7 @@ MonoBehaviour:
   dialogManager: {fileID: 406251488}
   angryEmoticon: {fileID: 21300000, guid: a7766b39f97da64438b988a0a6bc20ef, type: 3}
   alertEmoticon: {fileID: 21300000, guid: 93cf38b4df5ee564a8f50804dbe7155f, type: 3}
+  datePointManager: {fileID: 1685227061}
 --- !u!114 &169659372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1303,6 +1310,54 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &534085809
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 534085811}
+  - component: {fileID: 534085810}
+  m_Layer: 0
+  m_Name: Missile Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &534085810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534085809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba41f7f3efa734940b11d26571991081, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnFrequency: 6
+  maxNumMissiles: 6
+  player: {fileID: 106809411}
+  dialogManager: {fileID: 406251488}
+  missile: {fileID: 636744177}
+--- !u!4 &534085811
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534085809}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 838.3234, y: 113.7025, z: -7.75}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &573809128 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 4828163217287667155, guid: 436759be79ca9d347beb0df74834e960,
@@ -1369,7 +1424,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 624799711}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.4705588, y: 0, z: -17.026936}
+  m_LocalPosition: {x: 1.3922595, y: 0, z: -17.026936}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1601097658}
@@ -1483,6 +1538,12 @@ Transform:
   m_Father: {fileID: 1613351359}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &636744177 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 831439297192504337, guid: fc2ccaa499a0e01469a6274abc29d438,
+    type: 3}
+  m_PrefabInstance: {fileID: 7646606046756788296}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &679479570
 GameObject:
   m_ObjectHideFlags: 0
@@ -4116,7 +4177,7 @@ MonoBehaviour:
     - I am Patrick, your speed dating host for today!
     - Your first date of the day will be Willy. Willy is shy but sweet, supportive,
       and a real looker!
-    - Best of luck, and also try not to die!
+    - Best of luck, and try not to die!
     avatar: {fileID: 21300000, guid: 3e1d70c8d59cbb0459c4d4a9462a545f, type: 3}
     triggerRestart: 0
     pauseGame: 1
@@ -4728,7 +4789,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 15.1, y: -24.6}
+  m_AnchoredPosition: {x: 15.1, y: -19.6}
   m_SizeDelta: {x: 450.6, y: 88.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1065657524
@@ -4777,8 +4838,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 14
-  m_fontSizeBase: 14
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4787,7 +4848,7 @@ MonoBehaviour:
   m_textAlignment: 257
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: 40
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -4823,7 +4884,7 @@ MonoBehaviour:
     spaceCount: 10
     wordCount: 11
     linkCount: 0
-    lineCount: 1
+    lineCount: 2
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -5374,11 +5435,11 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 0
+  m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 0.9339623, g: 0.59474015, b: 0.59474015, a: 1}
-    m_HighlightedColor: {r: 0.2830189, g: 0.19357423, b: 0.19357423, a: 1}
-    m_PressedColor: {r: 0.6886792, g: 0.19815768, b: 0.19815768, a: 1}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.6792453, g: 0.6792453, b: 0.6792453, a: 1}
+    m_PressedColor: {r: 0.509434, g: 0.509434, b: 0.509434, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -5423,7 +5484,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.70980394}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -6951,10 +7012,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxNumPoints: 300
   pointsText: {fileID: 254096030}
+  pointsNotificationText: {fileID: 508913875}
   dateSuccessBar: {fileID: 628283373}
   goodSuccessBar: {fileID: 21300000, guid: 682cc1a34b478c94294f06906e4a8c7b, type: 3}
   badSuccessBar: {fileID: 21300000, guid: b0b1342470885504f9817132438efbd3, type: 3}
   pointChangeAnimator: {fileID: 508913877}
+  setPlayerFaceShocked: {fileID: 106809412}
 --- !u!1 &1687441621
 GameObject:
   m_ObjectHideFlags: 0
@@ -7321,7 +7384,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2049992334}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.4705588, y: 0, z: -17.026936}
+  m_LocalPosition: {x: 1.3922595, y: 0, z: -17.026936}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -9035,6 +9098,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Missile
+      objectReference: {fileID: 0}
+    - target: {fileID: 831439297192504337, guid: fc2ccaa499a0e01469a6274abc29d438,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 831439297192504338, guid: fc2ccaa499a0e01469a6274abc29d438,
         type: 3}
