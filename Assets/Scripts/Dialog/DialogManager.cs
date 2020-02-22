@@ -15,6 +15,7 @@ public class DialogManager : MonoBehaviour
     public bool restartScene;
     public bool pauseGame;
     public GameEndTimer gameEndTimer;
+    public EmoticonDialogPromptManager emoticonDialogPromptManager;
     void Awake()
     {
         sentences = new Queue<string>(); 
@@ -39,6 +40,7 @@ public class DialogManager : MonoBehaviour
         {
             gameEndTimer.runTimer = false;
         }
+        emoticonDialogPromptManager.runDialogTimers = false;
     }
 
     public void DisplayNextSentence()
@@ -60,5 +62,6 @@ public class DialogManager : MonoBehaviour
         gameEndTimer.runTimer = true;
         pauseGame = false;
         dialogAnimator.SetBool("showDialog", false);
+        emoticonDialogPromptManager.runDialogTimers = true;
     }
 }
