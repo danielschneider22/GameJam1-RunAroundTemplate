@@ -7,10 +7,11 @@ public class GameEndTimer : MonoBehaviour
 {
     public TextMeshProUGUI timerText;
     public float mainTimer;
+    public GameOverManager gameOverManager;
 
     private float timer;
     private bool canCount = true;
-    private bool doOnce = false;
+    private bool hasLost = false;
     void Start()
     {
         timer = mainTimer;
@@ -23,12 +24,13 @@ public class GameEndTimer : MonoBehaviour
             timerText.text = timer.ToString("F");
         }
 
-        else if (timer <= 0.0f && !doOnce)
+        else if (timer <= 0.0f && !hasLost)
         {
             canCount = false;
-            doOnce = true;
             timerText.text = "0.00";
             timer = 0.0f;
+            gameOverManager.gameOver("time");
+            hasLost = true;
         }
     }
 }

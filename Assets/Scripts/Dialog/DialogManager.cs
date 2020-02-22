@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class DialogManager : MonoBehaviour
@@ -11,6 +12,7 @@ public class DialogManager : MonoBehaviour
     public TextMeshProUGUI dialogText;
     public Animator dialogAnimator;
     public Image animalToShow;
+    public bool restartScene;
     void Start()
     {
         sentences = new Queue<string>(); 
@@ -29,6 +31,7 @@ public class DialogManager : MonoBehaviour
         }
         dialogText.text = sentences.Dequeue();
         animalToShow.sprite = dialog.avatar;
+        restartScene = dialog.triggerRestart;
     }
 
     public void DisplayNextSentence()
@@ -36,6 +39,10 @@ public class DialogManager : MonoBehaviour
         if(sentences.Count == 0)
         {
             EndDialog();
+            if (restartScene)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
             return;
         }
         dialogText.text = sentences.Dequeue();

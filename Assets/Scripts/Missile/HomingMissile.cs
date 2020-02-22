@@ -12,11 +12,31 @@ public class HomingMissile : MonoBehaviour
 
     public float speed = 5f;
     public float rotateSpeed = 200f;
+    public float missileLastTime = 5f;
     public GameObject explosionEffect;
+
+    public SetPlayerFaceShocked setPlayerFaceShocked;
+    public HealthTracker healthTracker;
+
+    private float directionalOffset;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        directionalOffset = Random.Range(-0.5f, 0.5f);
+        missileLastTime += Random.Range(0f, 4f);
+    }
+
+    private void Update()
+    {
+        if(missileLastTime <= 0)
+        {
+            Instantiate(explosionEffect, transform.position, transform.rotation);
+            Destroy(gameObject);
+        } else
+        {
+            missileLastTime -= Time.deltaTime;
+        }
     }
 
     void FixedUpdate()
@@ -25,7 +45,7 @@ public class HomingMissile : MonoBehaviour
 
         direction.Normalize();
 
-        direction.x = direction.x + Random.Range(-2.5f, 2.5f);
+        direction.x = direction.x + directionalOffset;
 
         float rotateAmount = Vector3.Cross(direction, transform.up).z;
 
@@ -36,7 +56,7 @@ public class HomingMissile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "PlayerBody")
+        if(collision.gameObject.tag == "PlayerBody" && playerMovement.nonMovingTimer <= 0)
         {
             Vector2 direction = (Vector2)target.position - rb.position;
 
@@ -44,8 +64,11 @@ public class HomingMissile : MonoBehaviour
 
             Instantiate(explosionEffect, transform.position, transform.rotation);
             playerMovement.nonMovingTimer = .75f;
-            targetRigidBody.AddForce(direction * 1000);
-            // targetRigidBody.AddTorque(20, ForceMode2D.Impulse);
+            targetRigidBody.AddForce(direction * 400);
+
+            setPlayerFaceShocked.setPlayerFaceShocked();
+            healthTracker.loseHealth();
+
             Destroy(gameObject);
         }
     }
