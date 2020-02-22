@@ -12,11 +12,11 @@ public class SetPlayerFaceShocked : MonoBehaviour
 
     private float surprisedLookLength;
 
-    public void setPlayerFaceShocked()
+    public void setPlayerFaceShocked(bool permanentlyShocked)
     {
         face.sprite = shockFacedSprite;
         avatarFace.sprite = shockFacedSprite;
-        surprisedLookLength = 2f;
+        surprisedLookLength = permanentlyShocked ? 100000f : 2f;
     }
     public void Update()
     {

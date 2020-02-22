@@ -10,6 +10,7 @@ public class GameOverManager : MonoBehaviour
     public DeathDialog deathDialogObj;
     public Image gameOverImage;
     public Image blackBlackDrop;
+    public SetPlayerFaceShocked setPlayerFaceShocked;
     public void gameOver(string causeOfLoss)
     {
         if(causeOfLoss == "health")
@@ -26,5 +27,7 @@ public class GameOverManager : MonoBehaviour
         }
         gameOverImage.enabled = true;
         blackBlackDrop.color = new Color(blackBlackDrop.color.r, blackBlackDrop.color.g, blackBlackDrop.color.b, .8f);
+
+        setPlayerFaceShocked.setPlayerFaceShocked(true);
     }
 }

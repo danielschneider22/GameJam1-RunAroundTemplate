@@ -56,6 +56,6 @@ public class DatePointManager : MonoBehaviour
         }
         pointsNotificationText.text = "-" + numPoints.ToString() + " " + reason;
         pointChangeAnimator.SetTrigger("Point Change Negative");
-        setPlayerFaceShocked.setPlayerFaceShocked();
+        setPlayerFaceShocked.setPlayerFaceShocked(false);
     }
 }

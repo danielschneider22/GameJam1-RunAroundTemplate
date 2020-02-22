@@ -73,6 +73,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (dialogManager.pauseGame)
         {
+            body.velocity = new Vector2(0, 0);
+            body.angularVelocity = 0;
             return;
         }
 

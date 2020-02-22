@@ -92,7 +92,7 @@ public class HomingMissile : MonoBehaviour
             playerMovement.nonMovingTimer = .75f;
             targetRigidBody.AddForce(direction * 400);
 
-            setPlayerFaceShocked.setPlayerFaceShocked();
+            setPlayerFaceShocked.setPlayerFaceShocked(false);
             healthTracker.loseHealth();
 
             Destroy(gameObject);
