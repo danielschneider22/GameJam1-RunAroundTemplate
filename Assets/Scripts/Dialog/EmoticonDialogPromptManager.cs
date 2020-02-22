@@ -31,8 +31,8 @@ public class EmoticonDialogPromptManager : MonoBehaviour
     {
         string[] convo1 = { "Hi! I'm Willy the Whale. I like cuddles and blowing bubbles.", "I was really nervous about trying out this speed dating thing honestly...", "With the strangers, awkward conversations, and missiles being thrown at your date.", "It seemed like a lot for an introvert like me." };
         emoticonTimers.Add(new EmoticonTimer(
-            5f,
-            5f,
+            2f,
+            2f,
             new Dialog("Willy the Whale", convo1, whale, true, 10)
         ));
 
@@ -66,7 +66,7 @@ public class EmoticonDialogPromptManager : MonoBehaviour
                 reminderText.enabled = false;
                 currTimer = emoticonTimers[currConvoIdx].ShallowCopy();
                 emoteImage.sprite = angryEmoticon;
-                angerEmoticonTimer = 3f;
+                angerEmoticonTimer = 5f;
                 datePointManager.decreasePoints(20, "Inattentive Date");
             }
 

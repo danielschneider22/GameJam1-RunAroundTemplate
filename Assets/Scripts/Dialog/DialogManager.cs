@@ -9,6 +9,8 @@ public class DialogManager : MonoBehaviour
 {
     private Queue<string> sentences;
     private int pointsForReading;
+
+    public Text continueText;
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI dialogText;
     public Animator dialogAnimator;
@@ -56,6 +58,10 @@ public class DialogManager : MonoBehaviour
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
             return;
+        }
+        if (sentences.Count == 1 && restartScene)
+        {
+            continueText.text = "RESTART";
         }
         dialogText.text = sentences.Dequeue();
     }

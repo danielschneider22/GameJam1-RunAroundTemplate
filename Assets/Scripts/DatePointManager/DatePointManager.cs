@@ -54,7 +54,7 @@ public class DatePointManager : MonoBehaviour
         {
             dateSuccessBar.sprite = badSuccessBar;
         }
-        pointsNotificationText.text = "+" + numPoints.ToString() + " " + reason;
+        pointsNotificationText.text = "-" + numPoints.ToString() + " " + reason;
         pointChangeAnimator.SetTrigger("Point Change Negative");
         setPlayerFaceShocked.setPlayerFaceShocked();
     }

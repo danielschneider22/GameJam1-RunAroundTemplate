@@ -10,20 +10,19 @@ public class MissileSpawner : MonoBehaviour
     public DialogManager dialogManager;
 
     private float timer;
-    private int currNumMissiles;
 
     public GameObject missile;
     // Start is called before the first frame update
     void Start()
     {
         timer = 0f;
-        currNumMissiles = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(dialogManager.pauseGame)
+        int currNumMissiles = GameObject.FindGameObjectsWithTag("Missile").Length;
+        if (dialogManager.pauseGame)
         {
             return;
         }
@@ -31,7 +30,6 @@ public class MissileSpawner : MonoBehaviour
         {
             Spawn();
             timer = spawnFrequency;
-            currNumMissiles++;
         } else
         {
             timer -= Time.deltaTime;
