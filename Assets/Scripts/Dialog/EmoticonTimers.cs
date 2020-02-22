@@ -15,4 +15,9 @@ public class EmoticonTimer
         this.dialog = dialog;
         this.emoticonDuration = emoticonDuration;
     }
+
+    public EmoticonTimer ShallowCopy()
+    {
+        return (EmoticonTimer)this.MemberwiseClone();
+    }
 }

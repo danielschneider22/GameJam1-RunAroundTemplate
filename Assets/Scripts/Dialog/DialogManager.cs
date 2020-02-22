@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class DialogManager : MonoBehaviour
 {
     private Queue<string> sentences;
+    private int pointsForReading;
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI dialogText;
     public Animator dialogAnimator;
@@ -16,6 +17,7 @@ public class DialogManager : MonoBehaviour
     public bool pauseGame;
     public GameEndTimer gameEndTimer;
     public EmoticonDialogPromptManager emoticonDialogPromptManager;
+    public DatePointManager datePointManager;
     void Awake()
     {
         sentences = new Queue<string>(); 
@@ -41,6 +43,7 @@ public class DialogManager : MonoBehaviour
             gameEndTimer.runTimer = false;
         }
         emoticonDialogPromptManager.runDialogTimers = false;
+        pointsForReading = dialog.pointsForReading;
     }
 
     public void DisplayNextSentence()
@@ -63,5 +66,9 @@ public class DialogManager : MonoBehaviour
         pauseGame = false;
         dialogAnimator.SetBool("showDialog", false);
         emoticonDialogPromptManager.runDialogTimers = true;
+        if(pointsForReading > 0)
+        {
+            datePointManager.increasePoints(pointsForReading, "Good Listener");
+        }
     }
 }
