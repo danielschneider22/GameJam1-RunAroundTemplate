@@ -26,7 +26,7 @@ public class GameOverManager : MonoBehaviour
             dialogTrigger.TriggerDialog();
         }
         gameOverImage.enabled = true;
-        blackBlackDrop.color = new Color(blackBlackDrop.color.r, blackBlackDrop.color.g, blackBlackDrop.color.b, .8f);
+        blackBlackDrop.enabled = true;
 
         setPlayerFaceShocked.setPlayerFaceShocked(true);
     }
