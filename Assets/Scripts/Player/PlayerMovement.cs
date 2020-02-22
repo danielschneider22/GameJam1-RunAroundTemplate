@@ -13,44 +13,63 @@ public class PlayerMovement : MonoBehaviour
     public SpriteRenderer leftLeg;
     public SpriteRenderer head;
 
+    public float nonMovingTimer = 0f;
+
     Vector2 movement;
 
 
     private void Update()
     {
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
-        if(movement.y > 0)
+        if(nonMovingTimer > 0)
         {
-            animator.SetBool("WalkUp", false);
-            animator.SetBool("Idle", false);
-            animator.SetBool("WalkDown", true);
-            
-        } else if (movement.y < 0 || (movement.y == 0 && movement.x != 0))
-        {
-            animator.SetBool("WalkDown", false);
-            animator.SetBool("Idle", false);
-            animator.SetBool("WalkUp", true);
-        } else if (movement.x == 0 && movement.y == 0)
-        {
-            animator.SetBool("WalkUp", false);
-            animator.SetBool("WalkDown", false);
-            animator.SetBool("Idle", true);
+            nonMovingTimer -= Time.deltaTime;
+            animator.enabled = false;
         }
-        if (movement.x > 0)
+        else
         {
-            leftLeg.flipX = false;
-            rightLeg.flipX = false;
-            head.flipX = false;
-        } else if (movement.x < 0)
-        {
-            rightLeg.flipX = true;
-            leftLeg.flipX = true;
-            head.flipX = true;
+            movement.x = Input.GetAxisRaw("Horizontal");
+            movement.y = Input.GetAxisRaw("Vertical");
+
+            if (movement.y > 0)
+            {
+                animator.SetBool("WalkUp", false);
+                animator.SetBool("Idle", false);
+                animator.SetBool("WalkDown", true);
+
+            }
+            else if (movement.y < 0 || (movement.y == 0 && movement.x != 0))
+            {
+                animator.SetBool("WalkDown", false);
+                animator.SetBool("Idle", false);
+                animator.SetBool("WalkUp", true);
+            }
+            else if (movement.x == 0 && movement.y == 0)
+            {
+                animator.SetBool("WalkUp", false);
+                animator.SetBool("WalkDown", false);
+                animator.SetBool("Idle", true);
+            }
+            if (movement.x > 0)
+            {
+                leftLeg.flipX = false;
+                rightLeg.flipX = false;
+                head.flipX = false;
+            }
+            else if (movement.x < 0)
+            {
+                rightLeg.flipX = true;
+                leftLeg.flipX = true;
+                head.flipX = true;
+            }
         }
     }
     void FixedUpdate()
     {
-        body.MovePosition(body.position + movement * moveSpeed * Time.fixedDeltaTime);
+        if(nonMovingTimer <= 0)
+        {
+            body.MovePosition(body.position + movement * moveSpeed * Time.fixedDeltaTime);
+            animator.enabled = true;
+        }
+        
     }
 }
