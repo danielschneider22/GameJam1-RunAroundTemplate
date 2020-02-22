@@ -13,7 +13,9 @@ public class DialogManager : MonoBehaviour
     public Animator dialogAnimator;
     public Image animalToShow;
     public bool restartScene;
-    void Start()
+    public bool pauseGame;
+    public GameEndTimer gameEndTimer;
+    void Awake()
     {
         sentences = new Queue<string>(); 
     }
@@ -32,6 +34,11 @@ public class DialogManager : MonoBehaviour
         dialogText.text = sentences.Dequeue();
         animalToShow.sprite = dialog.avatar;
         restartScene = dialog.triggerRestart;
+        pauseGame = dialog.pauseGame;
+        if(dialog.stopGameTimer)
+        {
+            gameEndTimer.runTimer = false;
+        }
     }
 
     public void DisplayNextSentence()
@@ -50,6 +57,8 @@ public class DialogManager : MonoBehaviour
 
     void EndDialog()
     {
+        gameEndTimer.runTimer = true;
+        pauseGame = false;
         dialogAnimator.SetBool("showDialog", false);
     }
 }

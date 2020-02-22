@@ -532,6 +532,8 @@ MonoBehaviour:
     - What do you like to do in your free time?
     avatar: {fileID: 21300000, guid: 5835684abd31bba47a2f9a9337b3d0b3, type: 3}
     triggerRestart: 0
+    pauseGame: 1
+    stopGameTimer: 0
 --- !u!114 &151756428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -893,6 +895,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 366503409}
   m_CullTransparentMesh: 0
+--- !u!1 &385529198
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 385529199}
+  - component: {fileID: 385529200}
+  m_Layer: 5
+  m_Name: PromptDialogManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &385529199
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 385529198}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 8.858645}
+  m_LocalScale: {x: 1.18875, y: 1.18875, z: 1.18875}
+  m_Children: []
+  m_Father: {fileID: 631097553}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 817.7833, y: 119.4994}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &385529200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 385529198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5dbb77a0325b124a8d2d7a3fe3541e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &406251486
 GameObject:
   m_ObjectHideFlags: 0
@@ -941,6 +991,8 @@ MonoBehaviour:
   dialogAnimator: {fileID: 1613351360}
   animalToShow: {fileID: 4996652318768541068}
   restartScene: 0
+  pauseGame: 0
+  gameEndTimer: {fileID: 1633964779}
 --- !u!1 &467711536
 GameObject:
   m_ObjectHideFlags: 0
@@ -1157,7 +1209,7 @@ GameObject:
   m_Component:
   - component: {fileID: 631097553}
   m_Layer: 0
-  m_Name: Dialog
+  m_Name: Dialog Dictionaries
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1170,13 +1222,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 631097552}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.5132768, y: -1.1950113, z: -8.858645}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -586.9968, y: -207.60368, z: -2.7961454}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 882273786}
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
+  - {fileID: 385529199}
+  - {fileID: 888181018}
+  m_Father: {fileID: 1613351359}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &679479570
 GameObject:
@@ -1391,6 +1445,11 @@ PrefabInstance:
       propertyPath: moveSpeed
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 2611351599685253825, guid: 436759be79ca9d347beb0df74834e960,
+        type: 3}
+      propertyPath: dialogManager
+      value: 
+      objectReference: {fileID: 406251488}
     - target: {fileID: 3805432321115407311, guid: 436759be79ca9d347beb0df74834e960,
         type: 3}
       propertyPath: m_TagString
@@ -1547,7 +1606,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82352b29a82651f4ea67a87d6d073dcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  willyTheWhaleSprite: {fileID: 21300000, guid: 5835684abd31bba47a2f9a9337b3d0b3,
+  willyTheWhaleSprite: {fileID: 21300000, guid: deb0acc8d154c4346bb7e52eca7ab6a4,
     type: 3}
 --- !u!1 &887437887
 GameObject:
@@ -3755,6 +3814,74 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &888181017
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 888181018}
+  - component: {fileID: 888181019}
+  - component: {fileID: 888181020}
+  m_Layer: 0
+  m_Name: Intro Dialog
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &888181018
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888181017}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 631097553}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &888181019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888181017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02d58207f4bdecc49a22e65ee6f46e0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialog:
+    name: Po the Panda
+    sentences:
+    - 'Hello and welcome to round 1! '
+    - I am Po, your speed dating host for today!
+    - Your first date of the day will be Willy. Willy is shy but sweet, supportive,
+      and a real looker!
+    - Best of luck, and also try not to die!
+    avatar: {fileID: 21300000, guid: 3e1d70c8d59cbb0459c4d4a9462a545f, type: 3}
+    triggerRestart: 0
+    pauseGame: 1
+    stopGameTimer: 1
+--- !u!114 &888181020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888181017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2a8593f52a1c2b46a3f79b296d2d2bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &961795475
 GameObject:
   m_ObjectHideFlags: 0
@@ -4904,6 +5031,8 @@ MonoBehaviour:
     - Sad ya died text
     avatar: {fileID: 0}
     triggerRestart: 0
+    pauseGame: 0
+    stopGameTimer: 0
 --- !u!114 &1172356401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6248,6 +6377,7 @@ Transform:
   - {fileID: 406251487}
   - {fileID: 151756426}
   - {fileID: 1462295850}
+  - {fileID: 631097553}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6514,6 +6644,7 @@ MonoBehaviour:
   timerText: {fileID: 1633964777}
   mainTimer: 30
   gameOverManager: {fileID: 1172356401}
+  runTimer: 0
 --- !u!1 &1687441621
 GameObject:
   m_ObjectHideFlags: 0
@@ -8343,7 +8474,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 240.3, y: 111.8}
-  m_SizeDelta: {x: 108, y: 132}
+  m_SizeDelta: {x: 170, y: 139.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4996652318768541068
 MonoBehaviour:
@@ -8363,7 +8494,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5835684abd31bba47a2f9a9337b3d0b3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: deb0acc8d154c4346bb7e52eca7ab6a4, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -8576,6 +8707,16 @@ PrefabInstance:
       propertyPath: healthTracker
       value: 
       objectReference: {fileID: 55512716}
+    - target: {fileID: 831439297192504338, guid: fc2ccaa499a0e01469a6274abc29d438,
+        type: 3}
+      propertyPath: dialogManager
+      value: 
+      objectReference: {fileID: 406251488}
+    - target: {fileID: 4175219076261406685, guid: fc2ccaa499a0e01469a6274abc29d438,
+        type: 3}
+      propertyPath: m_Autodestruct
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8567882156860138395, guid: fc2ccaa499a0e01469a6274abc29d438,
         type: 3}
       propertyPath: m_LocalPosition.x

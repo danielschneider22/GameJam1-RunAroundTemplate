@@ -8,17 +8,18 @@ public class GameEndTimer : MonoBehaviour
     public TextMeshProUGUI timerText;
     public float mainTimer;
     public GameOverManager gameOverManager;
+    public bool runTimer = false;
 
     private float timer;
-    private bool canCount = true;
     private bool hasLost = false;
+    
     void Start()
     {
         timer = mainTimer;
     }
     void Update()
     {
-        if (timer >= 0.0f && canCount)
+        if (timer >= 0.0f && runTimer)
         {
             timer -= Time.deltaTime;
             timerText.text = timer.ToString("F");
@@ -26,7 +27,7 @@ public class GameEndTimer : MonoBehaviour
 
         else if (timer <= 0.0f && !hasLost)
         {
-            canCount = false;
+            runTimer = false;
             timerText.text = "0.00";
             timer = 0.0f;
             gameOverManager.gameOver("time");

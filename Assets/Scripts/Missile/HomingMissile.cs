@@ -17,18 +17,32 @@ public class HomingMissile : MonoBehaviour
 
     public SetPlayerFaceShocked setPlayerFaceShocked;
     public HealthTracker healthTracker;
+    public DialogManager dialogManager;
 
     private float directionalOffset;
+    private TrailRenderer trailRenderer;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         directionalOffset = Random.Range(-0.5f, 0.5f);
         missileLastTime += Random.Range(0f, 4f);
+        trailRenderer = GetComponent<TrailRenderer>();
     }
 
     private void Update()
     {
+        if(dialogManager.pauseGame){
+            trailRenderer.emitting = false;
+            trailRenderer.time = Mathf.Infinity;
+            return;
+        }
+        else
+        {
+            trailRenderer.time = 1.5f;
+            trailRenderer.emitting = true;
+        }
+
         if(missileLastTime <= 0)
         {
             Instantiate(explosionEffect, transform.position, transform.rotation);
@@ -41,6 +55,13 @@ public class HomingMissile : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (dialogManager.pauseGame)
+        {
+            rb.velocity = new Vector2(0, 0);
+            rb.angularVelocity = 0;
+            return;
+        }
+
         Vector2 direction = (Vector2)target.position - rb.position;
 
         direction.Normalize();
@@ -56,7 +77,12 @@ public class HomingMissile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "PlayerBody" && playerMovement.nonMovingTimer <= 0)
+        if (dialogManager.pauseGame)
+        {
+            return;
+        }
+
+        if (collision.gameObject.tag == "PlayerBody" && playerMovement.nonMovingTimer <= 0)
         {
             Vector2 direction = (Vector2)target.position - rb.position;
 

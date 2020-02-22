@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public SpriteRenderer rightLeg;
     public SpriteRenderer leftLeg;
     public SpriteRenderer head;
+    public DialogManager dialogManager;
 
     public float nonMovingTimer = 0f;
 
@@ -20,7 +21,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if(nonMovingTimer > 0)
+        if (dialogManager.pauseGame)
+        {
+            return;
+        }
+
+        if (nonMovingTimer > 0)
         {
             nonMovingTimer -= Time.deltaTime;
             animator.enabled = false;
@@ -65,7 +71,12 @@ public class PlayerMovement : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if(nonMovingTimer <= 0)
+        if (dialogManager.pauseGame)
+        {
+            return;
+        }
+
+        if (nonMovingTimer <= 0)
         {
             body.MovePosition(body.position + movement * moveSpeed * Time.fixedDeltaTime);
             animator.enabled = true;

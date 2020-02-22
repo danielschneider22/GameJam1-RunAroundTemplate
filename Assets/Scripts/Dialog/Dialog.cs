@@ -10,13 +10,24 @@ public class Dialog
     public string[] sentences;
     public Sprite avatar;
     public bool triggerRestart;
+    public bool pauseGame;
+    public bool stopGameTimer;
 
+    public Dialog(string name, string[] sentences, Sprite avatar, bool triggerRestart, bool pauseGame)
+    {
+        this.name = name;
+        this.sentences = sentences;
+        this.avatar = avatar;
+        this.triggerRestart = triggerRestart;
+        this.pauseGame = pauseGame;
+    }
     public Dialog(string name, string[] sentences, Sprite avatar, bool triggerRestart)
     {
         this.name = name;
         this.sentences = sentences;
         this.avatar = avatar;
         this.triggerRestart = triggerRestart;
+        this.pauseGame = false;
     }
 
     public Dialog(string name, string[] sentences, Sprite avatar)
@@ -25,5 +36,6 @@ public class Dialog
         this.sentences = sentences;
         this.avatar = avatar;
         this.triggerRestart = false;
+        this.pauseGame = false;
     }
 }
