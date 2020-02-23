@@ -14,4 +14,10 @@ public class MoneyTracker : MonoBehaviour
         moneyText.text = currMoney.ToString();
     }
 
+    public void loseMoney(int money)
+    {
+        currMoney -= money;
+        moneyText.text = currMoney.ToString();
+    }
+
 }

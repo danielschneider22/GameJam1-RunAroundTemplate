@@ -34,4 +34,9 @@ public class GameEndTimer : MonoBehaviour
             hasLost = true;
         }
     }
+
+    public void updateTimerText()
+    {
+        timerText.text = mainTimer.ToString("F");
+    }
 }

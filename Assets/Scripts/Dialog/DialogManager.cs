@@ -9,12 +9,14 @@ public class DialogManager : MonoBehaviour
 {
     private Queue<string> sentences;
     private int pointsForReading;
+    private float dialogTimer;
 
     public Text continueText;
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI dialogText;
     public Animator dialogAnimator;
     public Image animalToShow;
+    public Image blackBackdrop;
     public bool restartScene;
     public bool pauseGame;
     public GameEndTimer gameEndTimer;
@@ -46,6 +48,8 @@ public class DialogManager : MonoBehaviour
         }
         emoticonDialogPromptManager.runDialogTimers = false;
         pointsForReading = dialog.pointsForReading;
+        blackBackdrop.enabled = true;
+        dialogTimer = 0f;
     }
 
     public void DisplayNextSentence()
@@ -74,7 +78,21 @@ public class DialogManager : MonoBehaviour
         emoticonDialogPromptManager.runDialogTimers = true;
         if(pointsForReading > 0)
         {
-            datePointManager.increasePoints(pointsForReading, "Good Listener");
+            if(dialogTimer > 2f)
+            {
+                datePointManager.increasePoints(pointsForReading, "Good Listener");
+
+            } else
+            {
+                datePointManager.decreasePoints(20, "Bad Listener!");
+            }
+            
         }
+        blackBackdrop.enabled = false;
+    }
+
+    public void Update()
+    {
+        dialogTimer += Time.deltaTime;
     }
 }

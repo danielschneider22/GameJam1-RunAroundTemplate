@@ -20,7 +20,9 @@ public class RunIntroDialog : MonoBehaviour
             gameEndTimer.runTimer = true;
         }
         gameEndTimer.mainTimer = roundLength;
-        
+        gameEndTimer.updateTimerText();
+
+
     }
 
 }

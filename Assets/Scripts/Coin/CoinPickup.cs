@@ -18,5 +18,9 @@ public class CoinPickup : MonoBehaviour
             moneyTracker.addMoney(10);
             Destroy(gameObject);
         }
+        if (collision.gameObject.tag == "Coin")
+        {
+            Destroy(gameObject);
+        }
     }
 }

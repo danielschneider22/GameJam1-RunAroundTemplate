@@ -33,14 +33,14 @@ public class EmoticonDialogPromptManager : MonoBehaviour
         emoticonTimers.Add(new EmoticonTimer(
             5f,
             25f,
-            new Dialog("Willy the Whale", convo1, whale, true, 10)
+            new Dialog("Willy the Whale", convo1, whale, false, 50)
         ));
 
         string[] convo2 = { "One of the weirdest things for me about online dating is making eye contact.", "Being a whale, people find it very intimidating to look up all the time", "And I feel bad trying to make 'em look up.", "So I try and scrunch down my body as far as it can go.", "But it usually doesn't help :(" };
         emoticonTimers.Add(new EmoticonTimer(
             10f,
             20f,
-            new Dialog("Willy the Whale", convo2, whale, true, 10)
+            new Dialog("Willy the Whale", convo2, whale, false, 50)
         ));
 
         currConvoIdx = 0;
