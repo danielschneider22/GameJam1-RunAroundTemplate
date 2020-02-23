@@ -13,6 +13,7 @@ public class GameOverManager : MonoBehaviour
     public SetPlayerFaceShocked setPlayerFaceShocked;
     private AudioManager audioManager;
     public AudioSource bgMusic;
+    public GameEndTimer gameEndTimer;
 
     public void Start()
     {
@@ -39,5 +40,7 @@ public class GameOverManager : MonoBehaviour
         audioManager.Play("GameLoss");
 
         setPlayerFaceShocked.setPlayerFaceShocked(true);
+
+        gameEndTimer.runTimer = false;
     }
 }

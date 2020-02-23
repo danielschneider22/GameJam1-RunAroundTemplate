@@ -15,7 +15,8 @@ public class CoinPickup : MonoBehaviour
 
         if (collision.gameObject.tag == "PlayerBody")
         {
-            moneyTracker.addMoney(10);
+            FindObjectOfType<AudioManager>().Play("PickedUpCoin");
+            moneyTracker.addMoney(20);
             Destroy(gameObject);
         }
         if (collision.gameObject.tag == "Coin")

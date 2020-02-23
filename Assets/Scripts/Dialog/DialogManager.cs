@@ -11,8 +11,10 @@ public class DialogManager : MonoBehaviour
     private int pointsForReading;
     private float dialogTimer;
     private AudioManager audioManager;
+    private string audioName;
 
     public Text continueText;
+    public TextMeshProUGUI spaceBarText;
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI dialogText;
     public Animator dialogAnimator;
@@ -31,6 +33,9 @@ public class DialogManager : MonoBehaviour
 
     public void StartDialog(Dialog dialog)
     {
+        audioName = dialog.audioName;
+        // audioManager.Play(audioName);
+        audioManager.Play("MenuOpened");
         dialogAnimator.SetBool("showDialog", true);
         nameText.text = dialog.name;
 
@@ -45,6 +50,7 @@ public class DialogManager : MonoBehaviour
         if (sentences.Count == 0 && dialog.triggerRestart)
         {
             continueText.text = "RESTART";
+            spaceBarText.text = "Press Space Bar to Restart";
         }
 
         animalToShow.sprite = dialog.avatar;
@@ -62,6 +68,7 @@ public class DialogManager : MonoBehaviour
 
     public void DisplayNextSentence()
     {
+        // audioManager.Play(audioName);
         audioManager.Play("ContinueClicked");
         if (sentences.Count == 0)
         {
@@ -81,6 +88,7 @@ public class DialogManager : MonoBehaviour
 
     void EndDialog()
     {
+        // audioManager.Stop(audioName);
         audioManager.Play("ContinueClicked");
         gameEndTimer.runTimer = true;
         pauseGame = false;

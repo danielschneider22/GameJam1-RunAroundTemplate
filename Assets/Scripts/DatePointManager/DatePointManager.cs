@@ -19,6 +19,7 @@ public class DatePointManager : MonoBehaviour
     public Animator pointChangeAnimator;
     public SetPlayerFaceShocked setPlayerFaceShocked;
     private AudioManager audioManager;
+    public EmoticonDialogPromptManager emoticonDialogPromptManager;
 
     public void Start()
     {
@@ -43,6 +44,7 @@ public class DatePointManager : MonoBehaviour
         pointChangeAnimator.SetTrigger("Point Change Positive");
 
         audioManager.Play("GainedPoints");
+        emoticonDialogPromptManager.setLoveEmoticon();
     }
 
     public void decreasePoints(int numPoints, string reason)
@@ -53,7 +55,7 @@ public class DatePointManager : MonoBehaviour
             currNumPoints = 0;
         }
         pointsText.text = currNumPoints + "/" + maxNumPoints;
-        dateSuccessBar.fillAmount = currNumPoints / maxNumPoints;
+        dateSuccessBar.fillAmount = (float)currNumPoints / (float)maxNumPoints;
         if (dateSuccessBar.fillAmount < .75f)
         {
             dateSuccessBar.sprite = badSuccessBar;
@@ -62,5 +64,6 @@ public class DatePointManager : MonoBehaviour
         pointChangeAnimator.SetTrigger("Point Change Negative");
         setPlayerFaceShocked.setPlayerFaceShocked(false);
         audioManager.Play("MissedNotification");
+        emoticonDialogPromptManager.setAngerEmoticon();
     }
 }

@@ -13,6 +13,7 @@ public class EmoticonDialogPromptManager : MonoBehaviour
     public DialogManager dialogManager;
     public Sprite angryEmoticon;
     public Sprite alertEmoticon;
+    public Sprite loveEmoticon;
     public DatePointManager datePointManager;
     private AudioManager audioManager;
 
@@ -22,6 +23,7 @@ public class EmoticonDialogPromptManager : MonoBehaviour
     private int currConvoIdx;
     private float angerEmoticonTimer;
     private bool addedNotification;
+    private float loveEmoticonTimer;
 
     void Awake()
     {
@@ -36,21 +38,28 @@ public class EmoticonDialogPromptManager : MonoBehaviour
         emoticonTimers.Add(new EmoticonTimer(
             5f,
             10f,
-            new Dialog("Willy the Whale", convo1, whale, false, 50)
+            new Dialog("Willy the Whale", convo1, whale, true, 50, "WhaleVoice")
         ));
 
         string[] convo2 = { "One of the weirdest things for me about online dating is making eye contact.", "Being a whale, people find it very intimidating to look up all the time", "And I feel bad trying to make 'em look up.", "So I try and scrunch down my body as far as it can go.", "But it usually doesn't help :(" };
         emoticonTimers.Add(new EmoticonTimer(
             10f,
             20f,
-            new Dialog("Willy the Whale", convo2, whale, false, 50)
+            new Dialog("Willy the Whale", convo2, whale, true, 50, "WhaleVoice")
         ));
 
-        string[] convo3 = { "Hey, I feel like I might be distracting you, so I stopped time to try and make things easier.", "I'm really sorry if I'm being a big old pain the whale butt.", "I'm just trying to find a real connection here." };
+        string[] convo3 = { "Hey, I feel like I've been distracting you stopping time to have these conversations.", "I just wanted your full attention, cause I think you're really cool!", "But I wouldn't want to interrupt your flow as you avoid all the missiles." };
         emoticonTimers.Add(new EmoticonTimer(
             5f,
             20f,
-            new Dialog("Willy the Whale", convo3, whale, true, 50)
+            new Dialog("Willy the Whale", convo3, whale, false, 50, "WhaleVoice")
+        ));
+
+        string[] convo4 = { "Oh shoot did I interrupt your flow even more my mixing things up?", "OH NO I DID IT AGAIN!"};
+        emoticonTimers.Add(new EmoticonTimer(
+            2f,
+            20f,
+            new Dialog("Willy the Whale", convo4, whale, true, 50, "WhaleVoice")
         ));
 
         currConvoIdx = 0;
@@ -113,5 +122,35 @@ public class EmoticonDialogPromptManager : MonoBehaviour
                 emoteImage.sprite = alertEmoticon;
             }
         }
+        if (loveEmoticonTimer > 0)
+        {
+            loveEmoticonTimer -= Time.deltaTime;
+            if (loveEmoticonTimer <= 0)
+            {
+                emoteImage.enabled = false;
+                emoteImage.sprite = alertEmoticon;
+            }
+        }
+    }
+
+    public void setLoveEmoticon()
+    {
+        loveEmoticonTimer = 0f;
+        loveEmoticonTimer = 3f;
+        if(emoteImage.sprite == alertEmoticon)
+        {
+            loveEmoticonTimer = 1f;
+
+        }
+        emoteImage.sprite = loveEmoticon;
+        emoteImage.enabled = true;
+    }
+
+    public void setAngerEmoticon()
+    {
+        angerEmoticonTimer = 3f;
+        loveEmoticonTimer = 0f;
+        emoteImage.sprite = angryEmoticon;
+        emoteImage.enabled = true;
     }
 }

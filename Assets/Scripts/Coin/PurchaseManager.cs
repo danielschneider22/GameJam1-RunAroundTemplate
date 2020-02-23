@@ -13,10 +13,18 @@ public class PurchaseManager : MonoBehaviour
     public static int flowersCost = 100;
     public static int timeCost = 100;
     public static int healthCost = 150;
+
+    private AudioManager audioManager;
+
+    public void Start()
+    {
+        audioManager = FindObjectOfType<AudioManager>();
+    }
     public void buySweets()
     {
         if(canPurchase(sweetsCost))
         {
+            audioManager.Play("MakePurchase");
             datePointManager.increasePoints(20, "Delicious Treat!");
             moneyTracker.loseMoney(sweetsCost);
         }
@@ -26,6 +34,7 @@ public class PurchaseManager : MonoBehaviour
     {
         if (canPurchase(flowersCost))
         {
+            audioManager.Play("MakePurchase");
             datePointManager.increasePoints(50, "So Pretty!");
             moneyTracker.loseMoney(flowersCost);
         }
@@ -35,6 +44,7 @@ public class PurchaseManager : MonoBehaviour
     {
         if (canPurchase(timeCost))
         {
+            audioManager.Play("MakePurchase");
             gameEndTimer.addTime(15f);
             moneyTracker.loseMoney(flowersCost);
         }
@@ -46,6 +56,7 @@ public class PurchaseManager : MonoBehaviour
         {
             healthTracker.gainHealth();
             moneyTracker.loseMoney(flowersCost);
+            audioManager.Play("MakePurchase");
         }
     }
 

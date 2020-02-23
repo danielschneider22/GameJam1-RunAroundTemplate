@@ -28,6 +28,7 @@ public class HomingMissile : MonoBehaviour
 
     private float directionalOffset;
     private TrailRenderer trailRenderer;
+    private AudioManager audioManager;
 
     void Start()
     {
@@ -35,6 +36,7 @@ public class HomingMissile : MonoBehaviour
         directionalOffset = Random.Range(-0.5f, 0.5f);
         missileLastTime += Random.Range(0f, 4f);
         trailRenderer = GetComponent<TrailRenderer>();
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     private void Update()
@@ -53,6 +55,7 @@ public class HomingMissile : MonoBehaviour
         if(missileLastTime <= 0)
         {
             Instantiate(explosionEffectBlue, transform.position, transform.rotation);
+            audioManager.Play("MissileMiss");
             Destroy(gameObject);
         } else
         {
@@ -108,6 +111,7 @@ public class HomingMissile : MonoBehaviour
 
             healthTracker.loseHealth();
 
+            audioManager.Play("MissileHit");
             Destroy(gameObject);
         }
     }

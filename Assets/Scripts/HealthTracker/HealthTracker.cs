@@ -28,6 +28,7 @@ public class HealthTracker : MonoBehaviour
 
     public void loseHealth()
     {
+        FindObjectOfType<AudioManager>().Play("Hurt");
         currHealth--;
         if(currHealth >= 0)
         {
