@@ -18,11 +18,13 @@ public class DatePointManager : MonoBehaviour
     public Sprite badSuccessBar;
     public Animator pointChangeAnimator;
     public SetPlayerFaceShocked setPlayerFaceShocked;
+    private AudioManager audioManager;
 
     public void Start()
     {
         pointsText.text = currNumPoints + "/" + maxNumPoints;
         dateSuccessBar.fillAmount = currNumPoints / maxNumPoints;
+        audioManager = FindObjectOfType<AudioManager>();
     }
     public void increasePoints(int numPoints, string reason)
     {
@@ -39,6 +41,8 @@ public class DatePointManager : MonoBehaviour
         }
         pointsNotificationText.text = "+" + numPoints.ToString() + " " + reason;
         pointChangeAnimator.SetTrigger("Point Change Positive");
+
+        audioManager.Play("GainedPoints");
     }
 
     public void decreasePoints(int numPoints, string reason)
@@ -57,5 +61,6 @@ public class DatePointManager : MonoBehaviour
         pointsNotificationText.text = "-" + numPoints.ToString() + " " + reason;
         pointChangeAnimator.SetTrigger("Point Change Negative");
         setPlayerFaceShocked.setPlayerFaceShocked(false);
+        audioManager.Play("MissedNotification");
     }
 }

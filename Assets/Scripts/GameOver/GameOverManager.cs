@@ -11,6 +11,13 @@ public class GameOverManager : MonoBehaviour
     public Image gameOverImage;
     public Image blackBlackDrop;
     public SetPlayerFaceShocked setPlayerFaceShocked;
+    private AudioManager audioManager;
+    public AudioSource bgMusic;
+
+    public void Start()
+    {
+        audioManager = FindObjectOfType<AudioManager>();
+    }
     public void gameOver(string causeOfLoss)
     {
         if(causeOfLoss == "health")
@@ -27,6 +34,9 @@ public class GameOverManager : MonoBehaviour
         }
         gameOverImage.enabled = true;
         blackBlackDrop.enabled = true;
+
+        bgMusic.Stop();
+        audioManager.Play("GameLoss");
 
         setPlayerFaceShocked.setPlayerFaceShocked(true);
     }

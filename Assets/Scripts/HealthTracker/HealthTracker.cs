@@ -38,7 +38,15 @@ public class HealthTracker : MonoBehaviour
         {
             gameOverManager.gameOver("health");
         }
+    }
 
-
+    public void gainHealth()
+    {
+        currHealth++;
+        if (currHealth >= 0)
+        {
+            Transform child = gridLayoutGroup.transform.GetChild(currHealth - 1);
+            child.gameObject.GetComponent<Image>().sprite = fullHeart;
+        }
     }
 }

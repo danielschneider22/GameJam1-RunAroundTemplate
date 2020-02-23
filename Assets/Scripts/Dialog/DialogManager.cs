@@ -10,6 +10,7 @@ public class DialogManager : MonoBehaviour
     private Queue<string> sentences;
     private int pointsForReading;
     private float dialogTimer;
+    private AudioManager audioManager;
 
     public Text continueText;
     public TextMeshProUGUI nameText;
@@ -24,7 +25,8 @@ public class DialogManager : MonoBehaviour
     public DatePointManager datePointManager;
     void Awake()
     {
-        sentences = new Queue<string>(); 
+        sentences = new Queue<string>();
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     public void StartDialog(Dialog dialog)
@@ -39,6 +41,12 @@ public class DialogManager : MonoBehaviour
             sentences.Enqueue(sentence);
         }
         dialogText.text = sentences.Dequeue();
+
+        if (sentences.Count == 0 && dialog.triggerRestart)
+        {
+            continueText.text = "RESTART";
+        }
+
         animalToShow.sprite = dialog.avatar;
         restartScene = dialog.triggerRestart;
         pauseGame = dialog.pauseGame;
@@ -54,7 +62,8 @@ public class DialogManager : MonoBehaviour
 
     public void DisplayNextSentence()
     {
-        if(sentences.Count == 0)
+        audioManager.Play("ContinueClicked");
+        if (sentences.Count == 0)
         {
             EndDialog();
             if (restartScene)
@@ -72,6 +81,7 @@ public class DialogManager : MonoBehaviour
 
     void EndDialog()
     {
+        audioManager.Play("ContinueClicked");
         gameEndTimer.runTimer = true;
         pauseGame = false;
         dialogAnimator.SetBool("showDialog", false);
@@ -94,5 +104,9 @@ public class DialogManager : MonoBehaviour
     public void Update()
     {
         dialogTimer += Time.deltaTime;
+        if(Input.GetKeyDown(KeyCode.Space) && dialogAnimator.GetBool("showDialog"))
+        {
+            DisplayNextSentence();
+        }
     }
 }

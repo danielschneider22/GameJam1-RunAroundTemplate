@@ -10,7 +10,7 @@ public class MoneyTracker : MonoBehaviour
 
     public void addMoney(int money)
     {
-        currMoney += money;
+        currMoney += 10;
         moneyText.text = currMoney.ToString();
     }
 

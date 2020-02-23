@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class HomingMissile : MonoBehaviour
@@ -9,15 +10,21 @@ public class HomingMissile : MonoBehaviour
     public Transform target;
     public Rigidbody2D targetRigidBody;
     public PlayerMovement playerMovement;
+    public Animator playerAnimator;
 
     public float speed = 5f;
     public float rotateSpeed = 200f;
     public float missileLastTime = 5f;
     public GameObject explosionEffect;
+    public GameObject explosionEffectBlue;
 
     public SetPlayerFaceShocked setPlayerFaceShocked;
     public HealthTracker healthTracker;
     public DialogManager dialogManager;
+
+    public SpriteRenderer playerBody;
+    public SpriteRenderer playerHead;
+    public Sprite forwardBody;
 
     private float directionalOffset;
     private TrailRenderer trailRenderer;
@@ -45,7 +52,7 @@ public class HomingMissile : MonoBehaviour
 
         if(missileLastTime <= 0)
         {
-            Instantiate(explosionEffect, transform.position, transform.rotation);
+            Instantiate(explosionEffectBlue, transform.position, transform.rotation);
             Destroy(gameObject);
         } else
         {
@@ -92,7 +99,13 @@ public class HomingMissile : MonoBehaviour
             playerMovement.nonMovingTimer = .75f;
             targetRigidBody.AddForce(direction * 400);
 
+            if(!playerAnimator.GetBool("WalkUp"))
+            {
+                playerBody.sprite = forwardBody;
+                playerHead.sortingOrder = 4;
+            }
             setPlayerFaceShocked.setPlayerFaceShocked(false);
+
             healthTracker.loseHealth();
 
             Destroy(gameObject);

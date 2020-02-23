@@ -14,17 +14,20 @@ public class EmoticonDialogPromptManager : MonoBehaviour
     public Sprite angryEmoticon;
     public Sprite alertEmoticon;
     public DatePointManager datePointManager;
+    private AudioManager audioManager;
 
     private List<EmoticonTimer> emoticonTimers;
     private EmoticonTimer currTimer;
     private DialogTrigger dialogTrigger;
     private int currConvoIdx;
     private float angerEmoticonTimer;
+    private bool addedNotification;
 
     void Awake()
     {
         emoticonTimers = new List<EmoticonTimer>();
         dialogTrigger = GetComponent<DialogTrigger>();
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     void Start()
@@ -32,7 +35,7 @@ public class EmoticonDialogPromptManager : MonoBehaviour
         string[] convo1 = { "Hi! I'm Willy the Whale. I like cuddles and blowing bubbles.", "I was really nervous about trying out this speed dating thing honestly...", "With the strangers, awkward conversations, and missiles being thrown at your date.", "It seemed like a lot for an introvert like me." };
         emoticonTimers.Add(new EmoticonTimer(
             5f,
-            25f,
+            10f,
             new Dialog("Willy the Whale", convo1, whale, false, 50)
         ));
 
@@ -41,6 +44,13 @@ public class EmoticonDialogPromptManager : MonoBehaviour
             10f,
             20f,
             new Dialog("Willy the Whale", convo2, whale, false, 50)
+        ));
+
+        string[] convo3 = { "Hey, I feel like I might be distracting you, so I stopped time to try and make things easier.", "I'm really sorry if I'm being a big old pain the whale butt.", "I'm just trying to find a real connection here." };
+        emoticonTimers.Add(new EmoticonTimer(
+            5f,
+            20f,
+            new Dialog("Willy the Whale", convo3, whale, true, 50)
         ));
 
         currConvoIdx = 0;
@@ -59,6 +69,11 @@ public class EmoticonDialogPromptManager : MonoBehaviour
                 emoteImage.enabled = true;
                 reminderText.enabled = true;
                 currTimer.emoticonDuration -= Time.deltaTime;
+                if(!addedNotification)
+                {
+                    addedNotification = true;
+                    audioManager.Play("Notification");
+                }
             }
 
             if (currTimer.emoticonDuration <= 0)
@@ -68,17 +83,19 @@ public class EmoticonDialogPromptManager : MonoBehaviour
                 emoteImage.sprite = angryEmoticon;
                 angerEmoticonTimer = 5f;
                 datePointManager.decreasePoints(20, "Inattentive Date");
+                addedNotification = false;
             }
 
-            if (Input.GetKeyDown(KeyCode.H) && currTimer.emoticonWait <= 0 && currTimer.emoticonDuration > 0)
+            if (Input.GetKeyDown(KeyCode.F) && currTimer.emoticonWait <= 0 && currTimer.emoticonDuration > 0)
             {
                 dialogTrigger.dialog = currTimer.dialog;
                 dialogTrigger.TriggerDialog();
 
                 emoteImage.enabled = false;
                 reminderText.enabled = false;
+                addedNotification = false;
 
-                if(currConvoIdx + 1 < emoticonTimers.Count)
+                if (currConvoIdx + 1 < emoticonTimers.Count)
                 {
                     currTimer = emoticonTimers[currConvoIdx + 1].ShallowCopy();
                     currConvoIdx += 1;

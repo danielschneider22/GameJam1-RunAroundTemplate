@@ -10,7 +10,7 @@ public class DeathDialog: MonoBehaviour
 
     public void Start()
     {
-        string[] willyDeathHealth = { "Oh god, did you die cause you were paying attention to me. I'm so sorry!" };
+        string[] willyDeathHealth = { "Oh jeez, did you die cause you were paying attention to me. I'm so sorry!" };
         HealthDeath = new Dictionary<string, Dialog>
         {
             {"Scene1", new Dialog("Willy the Whale", willyDeathHealth, willyTheWhaleSprite, true, true)},

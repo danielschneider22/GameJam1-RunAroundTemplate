@@ -39,4 +39,9 @@ public class GameEndTimer : MonoBehaviour
     {
         timerText.text = mainTimer.ToString("F");
     }
+
+    public void addTime(float time)
+    {
+        timer += time;
+    }
 }
