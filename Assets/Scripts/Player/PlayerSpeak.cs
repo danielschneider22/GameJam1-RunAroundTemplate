@@ -8,6 +8,10 @@ public class PlayerSpeak : MonoBehaviour
     public Sprite laugh;
     public Sprite music;
     public Sprite star;
+    public float speechBubbleTimer;
+    public DialogManager dialogManager;
+    public EmoticonThinkingManager emoticonThinkingManager;
+    public DatePointManager datePointManager;
 
     private AudioManager audioManager;
 
@@ -17,18 +21,54 @@ public class PlayerSpeak : MonoBehaviour
     }
     void Update()
     {
+       if(dialogManager.pauseGame)
+        {
+            return;
+        }
        if(Input.GetKeyDown(KeyCode.A))
        {
             speechBubble.sprite = laugh;
             audioManager.Play("Laughing");
-       }
-        if (Input.GetKeyDown(KeyCode.S))
+            speechBubbleTimer = 1f;
+            speechBubble.enabled = true;
+            checkEnemyThoughts(laugh.name);
+        }
+        else if (Input.GetKeyDown(KeyCode.S))
         {
             speechBubble.sprite = music;
+            audioManager.Play("Humming");
+            speechBubbleTimer = 1f;
+            speechBubble.enabled = true;
+            checkEnemyThoughts(music.name);
         }
-        if (Input.GetKeyDown(KeyCode.D))
+        else if (Input.GetKeyDown(KeyCode.D))
         {
             speechBubble.sprite = star;
+            audioManager.Play("Impressed");
+            speechBubbleTimer = 1f;
+            speechBubble.enabled = true;
+            checkEnemyThoughts(star.name);
+        }
+       else if(speechBubbleTimer > 0)
+        {
+            speechBubbleTimer -= Time.deltaTime;
+            if(speechBubbleTimer <= 0)
+            {
+                speechBubble.enabled = false;
+            }
+        }
+    }
+
+    private void checkEnemyThoughts(string name)
+    {
+        if (emoticonThinkingManager.currSprite == name)
+        {
+            datePointManager.increasePoints(5, "On the same page!");
+            emoticonThinkingManager.stopShowingThoughtBubble();
+        } else if (emoticonThinkingManager.currSprite != "" && emoticonThinkingManager.currSprite != name)
+        {
+            datePointManager.decreasePoints(5, "Different Wavelengths!");
+            emoticonThinkingManager.stopShowingThoughtBubble();
         }
     }
 }
