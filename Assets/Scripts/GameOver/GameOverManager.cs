@@ -62,11 +62,12 @@ public class GameOverManager : MonoBehaviour
         {
             string[] winningConvo = { "I am beaten! Your bravery, perserverance, and overall cuteness were too much for Zurg the Destroyer. Well Done." };
             Dialog winDialog = new Dialog("Zurg the Destroyer", winningConvo, animalSprite, false, true, true);
+            dialogTrigger.dialog = winDialog;
         } else
         {
-            string[] winningConvo = { "Well how about that partner! Ya done gone and lasso'd my hear!" };
+            string[] winningConvo = { "Well how about that partner! Ya done gone and lasso'd my heart!" };
             Dialog winDialog = new Dialog("Nigel the Narwal", winningConvo, animalSprite, false, true, true);
-
+            dialogTrigger.dialog = winDialog;
         }
 
         dialogTrigger.TriggerDialog();
