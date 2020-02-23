@@ -105,7 +105,7 @@ public class HomingMissile : MonoBehaviour
             if(!playerAnimator.GetBool("WalkUp"))
             {
                 playerBody.sprite = forwardBody;
-                playerHead.sortingOrder = 4;
+                playerHead.sortingOrder = 10;
             }
             setPlayerFaceShocked.setPlayerFaceShocked(false);
 

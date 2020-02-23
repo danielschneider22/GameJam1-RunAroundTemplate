@@ -21,14 +21,18 @@ public class DialogManager : MonoBehaviour
     public Image animalToShow;
     public Image blackBackdrop;
     public bool restartScene;
+    private bool loadNextScene;
     public bool pauseGame;
     public GameEndTimer gameEndTimer;
     public EmoticonDialogPromptManager emoticonDialogPromptManager;
     public DatePointManager datePointManager;
+
+    private float waitToIncreasePoints;
     void Awake()
     {
         sentences = new Queue<string>();
         audioManager = FindObjectOfType<AudioManager>();
+        waitToIncreasePoints = 0;
     }
 
     public void StartDialog(Dialog dialog)
@@ -51,10 +55,14 @@ public class DialogManager : MonoBehaviour
         {
             continueText.text = "RESTART";
             spaceBarText.text = "Press Space Bar to Restart";
+        } else if (sentences.Count ==0 && dialog.triggerNextLevel)
+        {
+            spaceBarText.text = "Press Space Bar to Go to Next Date";
         }
 
         animalToShow.sprite = dialog.avatar;
         restartScene = dialog.triggerRestart;
+        loadNextScene = dialog.triggerNextLevel;
         pauseGame = dialog.pauseGame;
         if(dialog.stopGameTimer)
         {
@@ -77,6 +85,10 @@ public class DialogManager : MonoBehaviour
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
+            if (loadNextScene)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
             return;
         }
         if (sentences.Count == 1 && restartScene)
@@ -96,9 +108,9 @@ public class DialogManager : MonoBehaviour
         emoticonDialogPromptManager.runDialogTimers = true;
         if(pointsForReading > 0)
         {
-            if(dialogTimer > 2f)
+            if(dialogTimer > 1f)
             {
-                datePointManager.increasePoints(pointsForReading, "Good Listener");
+                waitToIncreasePoints = .1f;
 
             } else
             {
@@ -115,6 +127,14 @@ public class DialogManager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space) && dialogAnimator.GetBool("showDialog"))
         {
             DisplayNextSentence();
+        }
+        if(waitToIncreasePoints > 0)
+        {
+            waitToIncreasePoints -= Time.deltaTime;
+            if(waitToIncreasePoints <= 0)
+            {
+                datePointManager.increasePoints(pointsForReading, "Good Listener");
+            }
         }
     }
 }

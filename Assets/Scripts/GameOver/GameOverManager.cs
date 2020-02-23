@@ -14,7 +14,7 @@ public class GameOverManager : MonoBehaviour
     private AudioManager audioManager;
     public AudioSource bgMusic;
     public GameEndTimer gameEndTimer;
-    public Sprite willyTheWhaleSprite;
+    public Sprite animalSprite;
     public Sprite gameOverWinSprite;
 
     public void Start()
@@ -49,7 +49,7 @@ public class GameOverManager : MonoBehaviour
     public void gameOverWin()
     {
         string[] winningConvo = { "Wow, you were an incredible date! I had so much fun!" }; 
-        Dialog winDialog = new Dialog("Willy the Whale", winningConvo, willyTheWhaleSprite, false, true);
+        Dialog winDialog = new Dialog("Willy the Whale", winningConvo, animalSprite, false, true, true);
         dialogTrigger.dialog = winDialog;
         dialogTrigger.TriggerDialog();
         gameOverImage.sprite = gameOverWinSprite;

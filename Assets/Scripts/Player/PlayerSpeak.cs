@@ -12,6 +12,7 @@ public class PlayerSpeak : MonoBehaviour
     public DialogManager dialogManager;
     public EmoticonThinkingManager emoticonThinkingManager;
     public DatePointManager datePointManager;
+    public int pointsGained = 10;
 
     private AudioManager audioManager;
 
@@ -63,11 +64,11 @@ public class PlayerSpeak : MonoBehaviour
     {
         if (emoticonThinkingManager.currSprite == name)
         {
-            datePointManager.increasePoints(10, "On the same page!");
+            datePointManager.increasePoints(pointsGained, "Found their interest!");
             emoticonThinkingManager.stopShowingThoughtBubble();
         } else if (emoticonThinkingManager.currSprite != "" && emoticonThinkingManager.currSprite != name)
         {
-            datePointManager.decreasePoints(5, "Different Wavelengths!");
+            datePointManager.decreasePoints(5, "Not what they want now!");
             emoticonThinkingManager.stopShowingThoughtBubble();
         }
     }

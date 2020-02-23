@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RunIntroDialog : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class RunIntroDialog : MonoBehaviour
     void Start()
     {
         PersistantRestartManager persistantRestartManager = GameObject.FindGameObjectWithTag("PersistOnLoad").GetComponent<PersistantRestartManager>();
-        if (!persistantRestartManager.hasStartedBefore)
+        if (persistantRestartManager.hasStartedBefore != SceneManager.GetActiveScene().name)
         {
             gameObject.GetComponent<DialogTrigger>().TriggerDialog();
         } else

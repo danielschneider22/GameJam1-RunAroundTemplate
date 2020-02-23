@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PersistantRestartManager : MonoBehaviour
 {
-    public bool hasStartedBefore;
+    public string hasStartedBefore;
 
     private void Awake()
     {
@@ -18,6 +19,6 @@ public class PersistantRestartManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        hasStartedBefore = true;
+        hasStartedBefore = SceneManager.GetActiveScene().name;
     }
 }

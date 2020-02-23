@@ -14,6 +14,7 @@ public class Dialog
     public bool stopGameTimer;
     public int pointsForReading;
     public string audioName;
+    public bool triggerNextLevel;
 
     public Dialog(string name, string[] sentences, Sprite avatar, bool pauseGame, int pointsForReading, string audioName)
     {
@@ -26,13 +27,14 @@ public class Dialog
         this.pointsForReading = pointsForReading;
         this.audioName = audioName;
     }
-    public Dialog(string name, string[] sentences, Sprite avatar, bool triggerRestart, bool pauseGame)
+    public Dialog(string name, string[] sentences, Sprite avatar, bool triggerRestart, bool pauseGame, bool triggerNextLevel)
     {
         this.name = name;
         this.sentences = sentences;
         this.avatar = avatar;
         this.triggerRestart = triggerRestart;
         this.pauseGame = pauseGame;
+        this.triggerNextLevel = triggerNextLevel;
     }
     public Dialog(string name, string[] sentences, Sprite avatar, bool triggerRestart)
     {

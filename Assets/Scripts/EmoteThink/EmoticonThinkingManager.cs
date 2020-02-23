@@ -14,15 +14,17 @@ public class EmoticonThinkingManager : MonoBehaviour
 
     public string currSprite;
     public Image animalThinkImage;
+    public int hardCodedEmotion;
 
     public DialogManager dialogManager;
 
     private bool showThoughtBubble;
+    public bool neverShowThoughtBuble;
 
     // Update is called once per frame
     void Update()
     {
-        if(dialogManager.pauseGame)
+        if(dialogManager.pauseGame || neverShowThoughtBuble)
         {
             return;
         }
@@ -32,7 +34,11 @@ public class EmoticonThinkingManager : MonoBehaviour
         }
         else if (emoteHideTimer <= 0 && !showThoughtBubble)
         {
-            int ranNum = Random.Range(1, 3);
+            int ranNum = Random.Range(1, 4);
+            if (hardCodedEmotion != -1)
+            {
+                ranNum = hardCodedEmotion;
+            }
             if (ranNum == 1)
             {
                 currSprite = laugh.name;
@@ -43,7 +49,7 @@ public class EmoticonThinkingManager : MonoBehaviour
                 currSprite = music.name;
                 animalThinkImage.sprite = music;
             }
-            if (ranNum == 1)
+            if (ranNum == 3)
             {
                 currSprite = star.name;
                 animalThinkImage.sprite = star;
