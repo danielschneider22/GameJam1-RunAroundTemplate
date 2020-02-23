@@ -14,6 +14,8 @@ public class GameOverManager : MonoBehaviour
     private AudioManager audioManager;
     public AudioSource bgMusic;
     public GameEndTimer gameEndTimer;
+    public Sprite willyTheWhaleSprite;
+    public Sprite gameOverWinSprite;
 
     public void Start()
     {
@@ -40,6 +42,22 @@ public class GameOverManager : MonoBehaviour
         audioManager.Play("GameLoss");
 
         setPlayerFaceShocked.setPlayerFaceShocked(true);
+
+        gameEndTimer.runTimer = false;
+    }
+
+    public void gameOverWin()
+    {
+        string[] winningConvo = { "Wow, you were an incredible date! I had so much fun!" }; 
+        Dialog winDialog = new Dialog("Willy the Whale", winningConvo, willyTheWhaleSprite, false, true);
+        dialogTrigger.dialog = winDialog;
+        dialogTrigger.TriggerDialog();
+        gameOverImage.sprite = gameOverWinSprite;
+        gameOverImage.color = new Color(0, 1f, 1f);
+        gameOverImage.enabled = true;
+        blackBlackDrop.enabled = true;
+
+        audioManager.Play("GameWin");
 
         gameEndTimer.runTimer = false;
     }

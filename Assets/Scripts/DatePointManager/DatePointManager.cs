@@ -20,6 +20,7 @@ public class DatePointManager : MonoBehaviour
     public SetPlayerFaceShocked setPlayerFaceShocked;
     private AudioManager audioManager;
     public EmoticonDialogPromptManager emoticonDialogPromptManager;
+    public GameOverManager gameOverManager;
 
     public void Start()
     {
@@ -30,9 +31,10 @@ public class DatePointManager : MonoBehaviour
     public void increasePoints(int numPoints, string reason)
     {
         currNumPoints += numPoints;
-        if(currNumPoints > maxNumPoints)
+        if(currNumPoints >= maxNumPoints)
         {
             currNumPoints = maxNumPoints;
+            gameOverManager.gameOverWin();
         }
         pointsText.text = currNumPoints + "/" + maxNumPoints;
         dateSuccessBar.fillAmount = (float)currNumPoints / (float)maxNumPoints;

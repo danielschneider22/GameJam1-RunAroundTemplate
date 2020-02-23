@@ -72,5 +72,6 @@ public class EmoticonThinkingManager : MonoBehaviour
         emoteShowTimer = 0f;
         animalThinkImage.enabled = false;
         showThoughtBubble = false;
+        currSprite = "";
     }
 }

@@ -63,7 +63,7 @@ public class PlayerSpeak : MonoBehaviour
     {
         if (emoticonThinkingManager.currSprite == name)
         {
-            datePointManager.increasePoints(5, "On the same page!");
+            datePointManager.increasePoints(10, "On the same page!");
             emoticonThinkingManager.stopShowingThoughtBubble();
         } else if (emoticonThinkingManager.currSprite != "" && emoticonThinkingManager.currSprite != name)
         {

@@ -48,14 +48,14 @@ public class EmoticonDialogPromptManager : MonoBehaviour
             new Dialog("Willy the Whale", convo2, whale, true, 50, "WhaleVoice")
         ));
 
-        string[] convo3 = { "Hey, I feel like I've been distracting you stopping time to have these conversations.", "I just wanted your full attention, cause I think you're really cool!", "But I wouldn't want to interrupt your flow as you avoid all the missiles." };
+        string[] convo3 = { "Hey, how do you feel about me not stopping time anymore for our conversations?", "I was doing it before because I was nervous you might not pay attention to me.", "But I wouldn't want to interrupt your flow as you avoid all the missiles." };
         emoticonTimers.Add(new EmoticonTimer(
             5f,
             20f,
             new Dialog("Willy the Whale", convo3, whale, false, 50, "WhaleVoice")
         ));
 
-        string[] convo4 = { "Oh shoot did I interrupt your flow even more my mixing things up?", "OH NO I DID IT AGAIN!"};
+        string[] convo4 = { "Oh shoot did I interrupt your flow even more switching to letting time run?", "I'm so super sorry!", "Maybe Patrick shouldn't have added time control powers as an aspect of this dating show game"};
         emoticonTimers.Add(new EmoticonTimer(
             2f,
             20f,
