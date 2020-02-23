@@ -224,8 +224,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dec04e746239978429d37dfc4e8db776, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
-  currHealth: 5
+  maxHealth: 10
+  currHealth: 10
   gridLayoutGroup: {fileID: 467711538}
   heart: {fileID: 2208829667501121568, guid: b123f270d7b27e84e9df40c89eff3a55, type: 3}
   emptyHeart: {fileID: 21300000, guid: c92309d8003ddd4409508060e4ea4034, type: 3}
@@ -537,7 +537,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Willy the Whale
+  m_text: Zurg the Zebra
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -565,7 +565,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 30.95
+  m_fontSize: 32.45
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -606,7 +606,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 128717187}
-    characterCount: 15
+    characterCount: 14
     spriteCount: 0
     spaceCount: 2
     wordCount: 3
@@ -832,7 +832,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13482ea488301e04aaee9e8f78d99759, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animal: {fileID: 21300000, guid: 5835684abd31bba47a2f9a9337b3d0b3, type: 3}
+  animal: {fileID: 21300000, guid: 093ad6e1a3bc48049b9e7a7cd2d798ba, type: 3}
   runDialogTimers: 1
   emoteImage: {fileID: 1101452714}
   reminderText: {fileID: 1076370045}
@@ -841,7 +841,7 @@ MonoBehaviour:
   alertEmoticon: {fileID: 21300000, guid: 93cf38b4df5ee564a8f50804dbe7155f, type: 3}
   loveEmoticon: {fileID: 21300000, guid: 40df5c71c1c132b47b7350783a3c7095, type: 3}
   datePointManager: {fileID: 1685227061}
-  dateName: willy
+  dateName: zurg
 --- !u!114 &169659372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1554,8 +1554,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 127.24, y: 34.41}
-  m_SizeDelta: {x: 186.65, y: 20.55}
+  m_AnchoredPosition: {x: 152.54002, y: 34.41}
+  m_SizeDelta: {x: 203.88, y: 20.55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &467711538
 MonoBehaviour:
@@ -1823,8 +1823,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba41f7f3efa734940b11d26571991081, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnFrequency: 7
-  maxNumMissiles: 10
+  spawnFrequency: 2
+  maxNumMissiles: 15
   player: {fileID: 106809411}
   dialogManager: {fileID: 406251488}
   missile: {fileID: 636744177}
@@ -3111,7 +3111,7 @@ MonoBehaviour:
   willyTheWhaleSprite: {fileID: 21300000, guid: deb0acc8d154c4346bb7e52eca7ab6a4,
     type: 3}
   nigel: {fileID: 0}
-  zurg: {fileID: 0}
+  zurg: {fileID: 21300000, guid: 093ad6e1a3bc48049b9e7a7cd2d798ba, type: 3}
 --- !u!1 &887437887
 GameObject:
   m_ObjectHideFlags: 0
@@ -7626,18 +7626,18 @@ MonoBehaviour:
   dialog:
     name: Patrick the Panda
     sentences:
-    - Hello and welcome to Deathmatch Speedating!
-    - I am Patrick, your speed dating host for the day!
-    - The rules are simple, make your date happy and don't die! Make it through 3
-      rounds of dates and you'll be the Dating Champion!
-    - "Oh, and remember this is SPEED dating. So if your date isn't happy by the
-      end of the date time, then we will have to kill you!\r"
-    - Your first date of the day will be Willy. Willy is shy but sweet, supportive,
-      and a real looker!
-    - 'Tips for this date: Willy is the perfect beginner date! He''s not a complex
-      character and mostly just wants to talk with you.'
-    - Watch out though, wait too long to talk to Willy and he'll get upset!
-    - Also, look out for coins on the floors to buy some sweet treats for Willy!
+    - 'Welcome to your final deathmatch speed date! '
+    - I hope you're prepared because this next challenger is pulling out all the
+      stops!
+    - Zurg, the Zebra is your next date. Zurg is a powerhouse sporting both tons
+      of missiles and a dangerously high  standard for a significant other.
+    - Zurg was raised to win, to crush, to bow to no one.
+    - His enemies call him Zurg, the Destroyer.
+    - His friends also call him Zurg, the Destroyer
+    - However, you do have a new weapon up your sleeve. Six ultra charges you can
+      use by pressing Ctrl that will wipe out all missiles in play.
+    - And ya know what! I'm rooting for ya kid! Here's five more health for your
+      battle!
     - Best of luck, and try not to die!
     avatar: {fileID: 21300000, guid: 3e1d70c8d59cbb0459c4d4a9462a545f, type: 3}
     triggerRestart: 0
@@ -7659,7 +7659,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameEndTimer: {fileID: 1633964779}
-  roundLength: 120
+  roundLength: 180
 --- !u!1 &892476968
 GameObject:
   m_ObjectHideFlags: 0
@@ -7788,9 +7788,9 @@ MonoBehaviour:
   star: {fileID: 21300000, guid: 5897c542fc81560428403b8e18879166, type: 3}
   currSprite: 
   animalThinkImage: {fileID: 1043610367}
-  hardCodedEmotion: 2
+  hardCodedEmotion: -1
   dialogManager: {fileID: 406251488}
-  neverShowThoughtBuble: 1
+  neverShowThoughtBuble: 0
 --- !u!1 &961795475
 GameObject:
   m_ObjectHideFlags: 0
@@ -8092,6 +8092,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 968829014}
   m_CullTransparentMesh: 0
+--- !u!224 &984461524 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3419056952776566048, guid: c39b947ffb5694148812bf13469349eb,
+    type: 3}
+  m_PrefabInstance: {fileID: 3419056953760814580}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &987887182
 GameObject:
   m_ObjectHideFlags: 0
@@ -8725,7 +8731,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Hi I'm Willy the Whale! I like cuddles and blowing bubbles.
+  m_text: Hi I'm Zurg the zebra. I hope you're having a nice day.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -8794,10 +8800,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1065657524}
-    characterCount: 59
+    characterCount: 55
     spriteCount: 0
-    spaceCount: 10
-    wordCount: 11
+    spaceCount: 11
+    wordCount: 12
     linkCount: 0
     lineCount: 2
     pageCount: 1
@@ -8927,7 +8933,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press F to talk to Willy the Whale
+  m_text: Press F to talk to Zurg the Zebra
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -9268,7 +9274,7 @@ MonoBehaviour:
   setPlayerFaceShocked: {fileID: 106809412}
   bgMusic: {fileID: 6259109698752382160}
   gameEndTimer: {fileID: 1633964779}
-  animalSprite: {fileID: 21300000, guid: 5835684abd31bba47a2f9a9337b3d0b3, type: 3}
+  animalSprite: {fileID: 21300000, guid: 093ad6e1a3bc48049b9e7a7cd2d798ba, type: 3}
   gameOverWinSprite: {fileID: 21300000, guid: 864ddfbcf78e7ee498abb15ee686f9bc, type: 3}
   gameOverReasonText: {fileID: 1379236482}
 --- !u!4 &1172356402
@@ -11326,6 +11332,7 @@ RectTransform:
   - {fileID: 467711537}
   - {fileID: 1633964776}
   - {fileID: 55512715}
+  - {fileID: 984461524}
   m_Father: {fileID: 1171513200}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11529,7 +11536,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 24783c8117d1b4249b8996342b1a0138, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fb80688154c9d5c4cad642a70850ae92, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -11878,7 +11885,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65403df0929ac8d46954c482471abff4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxNumPoints: 400
+  maxNumPoints: 500
   pointsText: {fileID: 254096030}
   pointsNotificationText: {fileID: 508913875}
   dateSuccessBar: {fileID: 628283373}
@@ -23715,6 +23722,125 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!1001 &3419056953760814580
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1593695022}
+    m_Modifications:
+    - target: {fileID: 3419056952776566048, guid: c39b947ffb5694148812bf13469349eb,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3419056952776566048, guid: c39b947ffb5694148812bf13469349eb,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3419056952776566048, guid: c39b947ffb5694148812bf13469349eb,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3419056952776566048, guid: c39b947ffb5694148812bf13469349eb,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3419056952776566048, guid: c39b947ffb5694148812bf13469349eb,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3419056952776566048, guid: c39b947ffb5694148812bf13469349eb,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3419056952776566048, guid: c39b947ffb5694148812bf13469349eb,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3419056952776566048, guid: c39b947ffb5694148812bf13469349eb,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3419056952776566048, guid: c39b947ffb5694148812bf13469349eb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3419056952776566048, guid: c39b947ffb5694148812bf13469349eb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3419056952776566048, guid: c39b947ffb5694148812bf13469349eb,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3419056952776566048, guid: c39b947ffb5694148812bf13469349eb,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 103.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3419056952776566048, guid: c39b947ffb5694148812bf13469349eb,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 2.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 3419056952776566048, guid: c39b947ffb5694148812bf13469349eb,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 95.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3419056952776566048, guid: c39b947ffb5694148812bf13469349eb,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 28.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3419056952776566048, guid: c39b947ffb5694148812bf13469349eb,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3419056952776566048, guid: c39b947ffb5694148812bf13469349eb,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3419056952776566048, guid: c39b947ffb5694148812bf13469349eb,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3419056952776566048, guid: c39b947ffb5694148812bf13469349eb,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3419056952776566048, guid: c39b947ffb5694148812bf13469349eb,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3419056952776566048, guid: c39b947ffb5694148812bf13469349eb,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3419056952776566055, guid: c39b947ffb5694148812bf13469349eb,
+        type: 3}
+      propertyPath: m_Name
+      value: Charge Holder
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c39b947ffb5694148812bf13469349eb, type: 3}
 --- !u!1 &4996652318768541066
 GameObject:
   m_ObjectHideFlags: 0
@@ -23770,7 +23896,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: deb0acc8d154c4346bb7e52eca7ab6a4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 093ad6e1a3bc48049b9e7a7cd2d798ba, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -23798,72 +23924,72 @@ PrefabInstance:
     - target: {fileID: 5989881773007355079, guid: 459f642f013b1134394af70445fa1235,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5989881773007355079, guid: 459f642f013b1134394af70445fa1235,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5989881773007355079, guid: 459f642f013b1134394af70445fa1235,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 40
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5989881773007355079, guid: 459f642f013b1134394af70445fa1235,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -45
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5989881773007355079, guid: 459f642f013b1134394af70445fa1235,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 80
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5989881773007355079, guid: 459f642f013b1134394af70445fa1235,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 30
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5989881773007355080, guid: 459f642f013b1134394af70445fa1235,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5989881773370418957, guid: 459f642f013b1134394af70445fa1235,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5989881773370418957, guid: 459f642f013b1134394af70445fa1235,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5989881773370418957, guid: 459f642f013b1134394af70445fa1235,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 40
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5989881773370418957, guid: 459f642f013b1134394af70445fa1235,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -75
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5989881773370418957, guid: 459f642f013b1134394af70445fa1235,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 80
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5989881773370418957, guid: 459f642f013b1134394af70445fa1235,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 30
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5989881773370418958, guid: 459f642f013b1134394af70445fa1235,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5989881773439307938, guid: 459f642f013b1134394af70445fa1235,
         type: 3}
@@ -24033,37 +24159,37 @@ PrefabInstance:
     - target: {fileID: 5989881774539921006, guid: 459f642f013b1134394af70445fa1235,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5989881774539921006, guid: 459f642f013b1134394af70445fa1235,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5989881774539921006, guid: 459f642f013b1134394af70445fa1235,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 40
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5989881774539921006, guid: 459f642f013b1134394af70445fa1235,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -105
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5989881774539921006, guid: 459f642f013b1134394af70445fa1235,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 80
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5989881774539921006, guid: 459f642f013b1134394af70445fa1235,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 30
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5989881774539921007, guid: 459f642f013b1134394af70445fa1235,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 459f642f013b1134394af70445fa1235, type: 3}

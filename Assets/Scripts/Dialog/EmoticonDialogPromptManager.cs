@@ -113,6 +113,58 @@ public class EmoticonDialogPromptManager : MonoBehaviour
             );
         }
 
+        if (dateName == "zurg")
+        {
+            string[] convo1 = { "Hello, my name is Zurg. ZURG THE DESTROYER", "... or zurg the zebra if you would prefer", "Prepare to lose this date." };
+            emoticonTimers.Add(new EmoticonTimer(
+                5f,
+                5f,
+                new Dialog("Zurg the Zebra", convo1, animal, false, 40, "WhaleVoice")
+            ));
+
+            string[] convo2 = { "Ho ho ho! Watching you struggle is its own reward", "I love that I can just sit back and pester you with dialog", "AND WATCH YOU SQUIRM MORTAL!", "Also I really approve of your choice of shirt. That suits your figure very well" };
+            emoticonTimers.Add(new EmoticonTimer(
+                10f,
+                15f,
+                new Dialog("Zurg the Zebra", convo2, animal, false, 40, "WhaleVoice")
+            ));
+
+            string[] convo3 = { "The saying goes that you know a zebra by it's stripes", "WELL MY STRIPES ARE MADE OF IRON AND PAIN!", "Nothing will withstand my missiles nor my dating prowess!", "... NOTHING" };
+            emoticonTimers.Add(new EmoticonTimer(
+                7f,
+                10f,
+                new Dialog("Zurg the Zebra", convo3, animal, false, 80, "WhaleVoice")
+            ));
+
+            string[] convo4 = { "Hmmm... you still yet live.", "STRANGE! PERHAPS YOU ARE NOT AS WEAK AS I HAD FIRST THOUGHT" };
+            emoticonTimers.Add(new EmoticonTimer(
+                5f,
+                3f,
+                new Dialog("Zurg the Zebra", convo4, animal, false, 80, "WhaleVoice")
+            ));
+
+            string[] convo5 = { "Did I mix you up by freezing time on this accursed plane!", "WELL I HOPE I DID!", "I ALSO REALLY ENJOY ALL THE SWEETS AND FLOWERS YOU GIVE ME" };
+            emoticonTimers.Add(new EmoticonTimer(
+                10f,
+                15f,
+                new Dialog("Zurg the Zebra", convo5, animal, true, 80, "WhaleVoice")
+            ));
+
+            string[] convo6 = { "You still stand.... I am impressed. Not impressed enough to give up...", "But I do admit that there is some charm in your tenacity.", "I FIND YOU QUITE CHARMING" };
+            emoticonTimers.Add(new EmoticonTimer(
+                8f,
+                15f,
+                new Dialog("Zurg the Zebra", convo5, animal, false, 80, "WhaleVoice")
+            ));
+
+            string[] defaultConvo = { "I CANNOT LOSE!", "I will chant the mantra of my inner zebra to let me win!", "ZEBRA ZEBRA GO GO GO", "ZEBRA ZEBRA NO NO NO", "... DONT MAKE FUN OF MY MANTRA" };
+            defaultEmoticonTimer = new EmoticonTimer(
+                5f,
+                8f,
+                new Dialog("Zurg the Zebra", defaultConvo, animal, false, 80, "WhaleVoice")
+            );
+        }
+
 
         currConvoIdx = 0;
         currTimer = emoticonTimers[currConvoIdx].ShallowCopy();

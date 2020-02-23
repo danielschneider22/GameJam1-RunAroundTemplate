@@ -8,6 +8,7 @@ public class DeathDialog: MonoBehaviour
     public Dictionary<string, Dialog> TimeDeath { get; set; }
     public Sprite willyTheWhaleSprite;
     public Sprite nigel;
+    public Sprite zurg;
 
     public void Start()
     {
@@ -33,6 +34,18 @@ public class DeathDialog: MonoBehaviour
         TimeDeath = new Dictionary<string, Dialog>
         {
             {"Scene2", new Dialog("Nigel the Narwal", nigelDeathTime, nigel, true, true, false)},
+        };
+
+        string[] zurgDeathHealth = { "As expected, you could not stand before my onslaught!" };
+        HealthDeath = new Dictionary<string, Dialog>
+        {
+            {"Scene3", new Dialog("Zurg the Destroyer", zurgDeathHealth, zurg, true, true, false)},
+        };
+
+        string[] zurgDeathTime = { "You are pathetic and not even deserving of my time... although you do have a nice smile." };
+        TimeDeath = new Dictionary<string, Dialog>
+        {
+            {"Scene3", new Dialog("Zurg the Destroyer", zurgDeathTime, zurg, true, true, false)},
         };
     }
 }

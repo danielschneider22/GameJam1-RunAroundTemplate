@@ -69,10 +69,10 @@ public class PurchaseManager : MonoBehaviour
 
     public void buyHealth()
     {
-        if (canPurchase(healthCost) && healthTracker.currHealth < 5)
+        if (canPurchase(healthCost) && healthTracker.currHealth < healthTracker.maxHealth)
         {
             healthTracker.gainHealth();
-            moneyTracker.loseMoney(flowersCost);
+            moneyTracker.loseMoney(healthCost);
             audioManager.Play("MakePurchase");
             healthButton.color = new Color(0, 1f, 0);
             healthTimer = 1f;

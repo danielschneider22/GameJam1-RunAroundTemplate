@@ -35,7 +35,7 @@ public class HealthTracker : MonoBehaviour
             Transform child = gridLayoutGroup.transform.GetChild(currHealth);
             child.gameObject.GetComponent<Image>().sprite = emptyHeart;
         }
-        if (currHealth == 0)
+        if (currHealth <= 0)
         {
             gameOverManager.gameOver("health");
         }

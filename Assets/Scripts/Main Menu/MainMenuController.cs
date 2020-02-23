@@ -19,6 +19,11 @@ public class MainMenuController : MonoBehaviour
         Destroy(firstCanvas);
     }
 
+    public void restartGame()
+    {
+        SceneManager.LoadScene("Scenes/Scene1");
+    }
+
     public void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space) && !killedSecondPage)
