@@ -25,27 +25,15 @@ public class DeathDialog: MonoBehaviour
         };
 
         string[] nigelDeathHealth = { "Well saddle my pony! Looks like yer weren't cut out for this evening partner!" };
-        HealthDeath = new Dictionary<string, Dialog>
-        {
-            {"Scene2", new Dialog("Nigel the Narwal", nigelDeathHealth, nigel, true, true, false)},
-        };
+        HealthDeath.Add("Scene2", new Dialog("Nigel the Narwal", nigelDeathHealth, nigel, true, true, false));
 
         string[] nigelDeathTime = { "This here's been the most boring date I've ever had. I'm outta here partner!" };
-        TimeDeath = new Dictionary<string, Dialog>
-        {
-            {"Scene2", new Dialog("Nigel the Narwal", nigelDeathTime, nigel, true, true, false)},
-        };
+        TimeDeath.Add("Scene2", new Dialog("Nigel the Narwal", nigelDeathTime, nigel, true, true, false));
 
         string[] zurgDeathHealth = { "As expected, you could not stand before my onslaught!" };
-        HealthDeath = new Dictionary<string, Dialog>
-        {
-            {"Scene3", new Dialog("Zurg the Destroyer", zurgDeathHealth, zurg, true, true, false)},
-        };
+        HealthDeath.Add("Scene3", new Dialog("Zurg the Destroyer", zurgDeathHealth, zurg, true, true, false));
 
         string[] zurgDeathTime = { "You are pathetic and not even deserving of my time... although you do have a nice smile." };
-        TimeDeath = new Dictionary<string, Dialog>
-        {
-            {"Scene3", new Dialog("Zurg the Destroyer", zurgDeathTime, zurg, true, true, false)},
-        };
+        TimeDeath.Add("Scene3", new Dialog("Zurg the Destroyer", zurgDeathTime, zurg, true, true, false));
     }
 }

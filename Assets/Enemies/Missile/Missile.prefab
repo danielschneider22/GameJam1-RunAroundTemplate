@@ -121,10 +121,20 @@ MonoBehaviour:
   target: {fileID: 0}
   targetRigidBody: {fileID: 0}
   playerMovement: {fileID: 0}
+  playerAnimator: {fileID: 0}
   speed: 5
   rotateSpeed: 200
-  explosionEffect: {fileID: 8917041280894384402, guid: 832650f855460f24d8a0e546d2cc1c4d,
+  missileLastTime: 5
+  explosionEffect: {fileID: 6786519579816982288, guid: 7a791691c19255446b2a38d4e12a11bf,
     type: 3}
+  explosionEffectBlue: {fileID: 6786519579816982288, guid: 7a791691c19255446b2a38d4e12a11bf,
+    type: 3}
+  setPlayerFaceShocked: {fileID: 0}
+  healthTracker: {fileID: 0}
+  dialogManager: {fileID: 0}
+  playerBody: {fileID: 0}
+  playerHead: {fileID: 0}
+  forwardBody: {fileID: 0}
 --- !u!60 &831439297192504340
 PolygonCollider2D:
   m_ObjectHideFlags: 0
